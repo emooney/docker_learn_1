@@ -1,6 +1,11 @@
 # Use an official Python runtime as the base image
 FROM python:3.12-slim
 
+# Install dependencies
+RUN apt-get update && \
+    apt-get install -y build-essential python3-dev python3-psutil && \ 
+    apt-get clean
+    
 # Set the working directory in the container
 WORKDIR /app
 
