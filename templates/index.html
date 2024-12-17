@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>System Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .info-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            margin-top: 5px;
+        }
+        .progress {
+            background-color: #4CAF50;
+            height: 20px;
+            border-radius: 4px;
+            transition: width 0.5s ease-in-out;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>System Information Dashboard</h1>
+    
+    <div class="info-card">
+        <h2>System Details</h2>
+        <p><strong>Platform:</strong> {{ info.platform }}</p>
+        <p><strong>Hostname:</strong> {{ info.hostname }}</p>
+    </div>
+
+    <div class="info-card">
+        <h2>CPU Information</h2>
+        <p><strong>CPU Cores:</strong> {{ info.cpu_count }}</p>
+        <p><strong>CPU Usage:</strong> {{ info.cpu_percent }}%</p>
+        <div class="progress-bar">
+            <div class="progress" style="width: {{ info.cpu_percent }}%"></div>
+        </div>
+    </div>
+
+    <div class="info-card">
+        <h2>Memory Information</h2>
+        <p><strong>Total Memory:</strong> {{ info.memory_total }}</p>
+        <p><strong>Used Memory:</strong> {{ info.memory_used }}</p>
+        <p><strong>Memory Usage:</strong> {{ info.memory_percent }}%</p>
+        <div class="progress-bar">
+            <div class="progress" style="width: {{ info.memory_percent }}%"></div>
+        </div>
+    </div>
+
+    <div class="info-card">
+        <h2>Disk Information</h2>
+        <p><strong>Total Disk Space:</strong> {{ info.disk_total }}</p>
+        <p><strong>Used Disk Space:</strong> {{ info.disk_used }}</p>
+        <p><strong>Disk Usage:</strong> {{ info.disk_percent }}%</p>
+        <div class="progress-bar">
+            <div class="progress" style="width: {{ info.disk_percent }}%"></div>
+        </div>
+    </div>
+</body>
+</html>
